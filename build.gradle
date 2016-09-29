@@ -1,0 +1,34 @@
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+
+    dependencies {
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion"
+        classpath 'com.google.appengine:gradle-appengine-plugin:1.9.42'
+    }
+}
+
+
+apply plugin: 'idea'
+apply plugin: 'war'
+apply plugin: 'kotlin'
+apply plugin: 'appengine'
+
+repositories {
+  mavenCentral()
+}
+
+dependencies {
+    compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion"
+
+    compile "org.jetbrains.kotlin:kotlin-reflect:$kotlinVersion"
+
+    appengineSdk 'com.google.appengine:appengine-java-sdk:1.9.42'
+
+    compile 'javax.servlet:servlet-api:2.5'
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '2.7'
+}
